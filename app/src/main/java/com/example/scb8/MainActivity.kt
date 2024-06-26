@@ -69,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         //dialintent = implicit intent
         var dialIntent:Intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:987654321"))
         startActivity(dialIntent)
+        throw NullPointerException("crash demo")
     }
 
     fun startHome(view: View) {
