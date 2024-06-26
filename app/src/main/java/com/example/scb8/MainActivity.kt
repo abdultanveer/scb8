@@ -33,7 +33,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openDialer(view: View) {
+        //dialintent = implicit intent
         var dialIntent:Intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:987654321"))
         startActivity(dialIntent)
+    }
+
+    fun startHome(view: View) {
+        //homeintent = explicit intent --since im taking the name of the class to be invoked
+        var homeIntent = Intent(this,HomeActivity::class.java)
+        homeIntent.putExtra("mykey","currency,jewels")
+        startActivity(homeIntent)
     }
 }
