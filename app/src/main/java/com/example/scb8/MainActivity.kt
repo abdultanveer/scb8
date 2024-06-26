@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         //dialintent = implicit intent
         var dialIntent:Intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:987654321"))
         add(10,20)
-        startActivity(dialIntent)
+        //startActivity(dialIntent)
       //  throw NullPointerException("crash demo")
     }
 
@@ -77,6 +77,8 @@ class MainActivity : AppCompatActivity() {
         var d = i *20
         d++
         var f = d*i+i1/20
+        d--
+        d+=10
         return i * i1
 
     }
