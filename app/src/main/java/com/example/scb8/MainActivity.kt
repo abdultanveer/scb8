@@ -68,8 +68,17 @@ class MainActivity : AppCompatActivity() {
     fun openDialer(view: View) {
         //dialintent = implicit intent
         var dialIntent:Intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:987654321"))
+        add(10,20)
         startActivity(dialIntent)
-        throw NullPointerException("crash demo")
+      //  throw NullPointerException("crash demo")
+    }
+
+    private fun add(i: Int, i1: Int):Int {
+        var d = i *20
+        d++
+        var f = d*i+i1/20
+        return i * i1
+
     }
 
     fun startHome(view: View) {
