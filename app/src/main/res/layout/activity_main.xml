@@ -23,9 +23,19 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
         android:layout_marginTop="32dp"
-        android:text="start"
         android:onClick="clickHandler"
+        android:text="start"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btnDial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:onClick="openDialer"
+        android:text="dial"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnStart"
+        app:layout_constraintStart_toEndOf="@+id/btnStart" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

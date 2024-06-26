@@ -1,5 +1,7 @@
 package com.example.scb8
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -28,5 +30,10 @@ class MainActivity : AppCompatActivity() {
                     Log.i("MainActivity","undeleting the mail")
                 })
         snackbar.show()
+    }
+
+    fun openDialer(view: View) {
+        var dialIntent:Intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:987654321"))
+        startActivity(dialIntent)
     }
 }
