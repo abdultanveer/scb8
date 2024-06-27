@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -14,12 +15,17 @@ import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
 
+    var count = 0
+    lateinit var mainTextView: TextView
+
     lateinit var constraintLayout: ConstraintLayout
     var TAG = MainActivity::class.java.simpleName
     override fun onCreate(savedInstanceState: Bundle?) {  //method header/signature
         super.onCreate(savedInstanceState)
         //enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+        mainTextView = findViewById(R.id.tvMainn)
+        mainTextView.setText(""+count)
         constraintLayout = findViewById(R.id.xmlConstraintLayout)
         Log.i(TAG,"activity is getting created --egg")
         //allocate memory for your activity
@@ -88,5 +94,10 @@ class MainActivity : AppCompatActivity() {
         var homeIntent = Intent(this,HomeActivity::class.java)
         homeIntent.putExtra("mykey","currency,jewels")
         startActivity(homeIntent)
+    }
+
+    fun incrementCount(view: View) {
+        count++
+        mainTextView.setText(""+count)
     }
 }

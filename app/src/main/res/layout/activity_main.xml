@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvMainn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello android at scb!"
@@ -27,8 +27,8 @@
         android:layout_marginTop="32dp"
         android:onClick="clickHandler"
         android:text="@string/start"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/tvMainn"
+        app:layout_constraintTop_toBottomOf="@+id/tvMainn" />
 
     <Button
         android:id="@+id/btnDial"
@@ -73,5 +73,16 @@
         android:inputType="numberPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+    <Button
+        android:id="@+id/btnIncrement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="3dp"
+        android:onClick="incrementCount"
+        android:text="increment"
+        app:layout_constraintEnd_toEndOf="@+id/tvMainn"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
