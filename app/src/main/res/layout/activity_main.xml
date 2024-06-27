@@ -27,7 +27,8 @@
         android:layout_marginTop="32dp"
         android:onClick="clickHandler"
         android:text="start"
-        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@id/btnSnack"
+        app:layout_constraintTop_toBottomOf="@id/btnSnack"
          />
 
     <Button
