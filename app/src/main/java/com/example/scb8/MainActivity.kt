@@ -12,7 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.snackbar.Snackbar
-
+//loosing data on rotation- activity was getting killed and recreated
 class MainActivity : AppCompatActivity() {
 
     var count = 0
