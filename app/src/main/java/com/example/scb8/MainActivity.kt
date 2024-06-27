@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var constraintLayout: ConstraintLayout
     var TAG = MainActivity::class.java.simpleName
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {  //method header/signature
         super.onCreate(savedInstanceState)
         //enableEdgeToEdge()
         setContentView(R.layout.activity_main)
