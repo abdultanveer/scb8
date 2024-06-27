@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello android at scb!"
@@ -60,5 +60,14 @@
         android:onClick="insertItemDb"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnHome" />
+
+    <Button
+        android:id="@+id/btnFind"
+        android:onClick="findItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="find"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="255dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -15,17 +16,21 @@ import com.example.scb8.database.Item
 import com.example.scb8.database.ItemDao
 import com.example.scb8.database.ItemRoomDatabase
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     lateinit var dao: ItemDao
     lateinit var constraintLayout: ConstraintLayout
     var TAG = MainActivity::class.java.simpleName
+    lateinit var mainTextView: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+        mainTextView = findViewById(R.id.tvMain)
         constraintLayout = findViewById(R.id.xmlConstraintLayout)
         Log.i(TAG,"activity is getting created --egg")
         //allocate memory for your activity
@@ -109,6 +114,13 @@ class MainActivity : AppCompatActivity() {
         //coroutines - async api
         GlobalScope.launch {
             dao.insert(item)
+        }
+    }
+
+    fun findItem(view: View) {
+        GlobalScope.launch(Dispatchers.Main) {
+            var item = dao.getItem(777)
+            mainTextView.setText(item.first().itemName)
         }
     }
 }
