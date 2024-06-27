@@ -28,7 +28,7 @@
         android:onClick="clickHandler"
         android:text="start"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+         />
 
     <Button
         android:id="@+id/btnDial"
@@ -56,18 +56,28 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="29dp"
-        android:text="insertDb"
         android:onClick="insertItemDb"
+        android:text="insertDb"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnHome" />
 
     <Button
         android:id="@+id/btnFind"
-        android:onClick="findItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="findItem"
         android:text="find"
         tools:layout_editor_absoluteX="154dp"
         tools:layout_editor_absoluteY="255dp" />
+
+    <Button
+        android:id="@+id/btnSnack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:text="snack"
+        app:layout_constraintBaseline_toBaselineOf="@id/btnFind"
+        app:layout_constraintStart_toStartOf="parent"
+         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

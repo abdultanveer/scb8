@@ -6,6 +6,10 @@ plugins {
 }
 
 android {
+
+    buildFeatures{
+        viewBinding = true
+    }
     namespace = "com.example.scb8"
     compileSdk = 34
 
