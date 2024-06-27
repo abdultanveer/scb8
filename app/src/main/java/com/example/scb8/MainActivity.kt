@@ -11,12 +11,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 //loosing data on rotation- activity was getting killed and recreated
 class MainActivity : AppCompatActivity() {
 
-    var count = 0
     lateinit var mainTextView: TextView
+    lateinit var viewModel: MainViewModel
 
     lateinit var constraintLayout: ConstraintLayout
     var TAG = MainActivity::class.java.simpleName
@@ -25,7 +26,8 @@ class MainActivity : AppCompatActivity() {
         //enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         mainTextView = findViewById(R.id.tvMainn)
-        mainTextView.setText(""+count)
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        mainTextView.setText(""+viewModel.count)
         constraintLayout = findViewById(R.id.xmlConstraintLayout)
         Log.i(TAG,"activity is getting created --egg")
         //allocate memory for your activity
@@ -97,7 +99,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun incrementCount(view: View) {
-        count++
-        mainTextView.setText(""+count)
+        viewModel.incrementCount()
+        mainTextView.setText(""+viewModel.count)
     }
 }
