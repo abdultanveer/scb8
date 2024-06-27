@@ -9,6 +9,8 @@ import androidx.core.view.WindowInsetsCompat
 
 class HomeActivity : AppCompatActivity() {
     lateinit var homeTextView: TextView
+
+    var data = arrayOf("india","hindi","karnataka","tamilnadu","software")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
