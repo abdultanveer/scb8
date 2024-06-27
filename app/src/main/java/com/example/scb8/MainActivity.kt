@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 //loosing data on rotation- activity was getting killed and recreated
@@ -27,6 +28,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         mainTextView = findViewById(R.id.tvMainn)
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+//whenever seconds value changes please update secondsObserver and owner = this activity -- alive-- register for updates
+        //activity has stopped unsubscribe from updates
+        viewModel._seconds.observe(this,secondsObserver)
         mainTextView.setText(""+viewModel.count)
         constraintLayout = findViewById(R.id.xmlConstraintLayout)
         Log.i(TAG,"activity is getting created --egg")
@@ -102,4 +106,12 @@ class MainActivity : AppCompatActivity() {
         viewModel.startTimer()
         mainTextView.setText(""+viewModel._seconds)
     }
+
+    var secondsObserver:Observer<Int> = object : Observer<Int>{
+        override fun onChanged(newValue: Int) {
+            mainTextView.setText(""+newValue)
+        }
+
+    }
+
 }
