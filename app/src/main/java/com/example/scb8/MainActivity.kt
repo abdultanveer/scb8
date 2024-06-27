@@ -99,7 +99,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun incrementCount(view: View) {
-        viewModel.incrementCount()
-        mainTextView.setText(""+viewModel.count)
+        viewModel.startTimer()
+        mainTextView.setText(""+viewModel._seconds)
     }
 }
