@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">scb8</string>
+    <string name="start">start</string>
+    <string name="home">home</string>
+    <string name="enter_name_hint">enter name</string>
+    <string name="enter_password_hint">enter password</string>
 </resources>
