@@ -50,4 +50,15 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/btnStart"
         app:layout_constraintEnd_toStartOf="@+id/btnStart" />
 
+    <Button
+        android:id="@+id/btnInsert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="29dp"
+        android:text="insertDb"
+        android:onClick="insertItemDb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnHome" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

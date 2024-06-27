@@ -10,10 +10,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.room.Dao
+import com.example.scb8.database.Item
+import com.example.scb8.database.ItemDao
+import com.example.scb8.database.ItemRoomDatabase
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
-
+    lateinit var dao: ItemDao
     lateinit var constraintLayout: ConstraintLayout
     var TAG = MainActivity::class.java.simpleName
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +29,10 @@ class MainActivity : AppCompatActivity() {
         constraintLayout = findViewById(R.id.xmlConstraintLayout)
         Log.i(TAG,"activity is getting created --egg")
         //allocate memory for your activity
+
+        var  database = ItemRoomDatabase.getDatabase(this)
+        dao = database.itemDao()
+
     }
 
     override fun onStart() {
@@ -88,5 +98,17 @@ class MainActivity : AppCompatActivity() {
         var homeIntent = Intent(this,HomeActivity::class.java)
         homeIntent.putExtra("mykey","currency,jewels")
         startActivity(homeIntent)
+    }
+
+    fun insertItemDb(view: View) {
+        var item = Item(777,"fruits",999.0,88)
+        insertDb(item)
+    }
+
+    private fun insertDb(item: Item) {
+        //coroutines - async api
+        GlobalScope.launch {
+            dao.insert(item)
+        }
     }
 }
