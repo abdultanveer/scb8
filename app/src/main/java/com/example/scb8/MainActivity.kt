@@ -90,9 +90,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun getDataNet(view: View) {
-        GlobalScope.launch(Dispatchers.IO) {
+        GlobalScope.launch {
             val listResult = MarsApi.retrofitService.getPhotos()
             Log.i(TAG,"the no of json received = "+listResult.size)
+            Log.i(TAG,"the first url img ="+listResult.get(0).imgSrc)
 
         }
 

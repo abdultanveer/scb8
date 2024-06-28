@@ -1,12 +1,11 @@
 package com.example.scb8.network
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+import com.squareup.moshi.Json
 
-@Serializable
+
 data class MarsPhoto(
     val id: String,
-    @SerialName(value = "img_src")
+    @Json(name = "img_src")
     val imgSrc: String
 
 )
