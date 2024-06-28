@@ -1,9 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    //alias(libs.plugins.jetbrains.kotlin)
 
-  id("org.jetbrains.kotlin.plugin.serialization") version "1.8.10"
+ // id("org.jetbrains.kotlin.plugin.serialization") version "1.8.10"
 
 }
 
@@ -53,9 +52,12 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.retrofit)
    // implementation(libs.converter.scalars)
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.retrofit2.kotlinx.serialization.converter)
-    implementation(libs.okhttp)
+ /*   implementation(libs.kotlinx.serialization.json)
+    implementation(libs.retrofit2.kotlinx.serialization.converter)*/
+   // implementation(libs.okhttp)
+    implementation(libs.moshi.kotlin)
+    implementation(libs.converter.moshi)
+    implementation(libs.coil)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
