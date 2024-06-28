@@ -15,6 +15,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.scb8.network.MarsApi
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -89,9 +90,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun getDataNet(view: View) {
-        GlobalScope.launch {
+        GlobalScope.launch(Dispatchers.IO) {
             val listResult = MarsApi.retrofitService.getPhotos()
-            Log.i(TAG,"the json received is--\n"+listResult)
+            Log.i(TAG,"the no of json received = "+listResult.size)
 
         }
 
