@@ -22,4 +22,16 @@ class HomeActivity : AppCompatActivity() {
        var dataReceived =  intent.extras?.getString("mykey")
         homeTextView.setText(dataReceived)
     }
+
+    //http://openweathermap.com/city=bangalore
+    fun getWeather(cityName:String):String{
+        //query db
+        return  "{temp:30, windspeed:45mph}"
+    }
+
+
+    fun anplr(image:String):String{
+        //computer vision-- analyse image
+        return "ka01-1243"
+    }
 }
