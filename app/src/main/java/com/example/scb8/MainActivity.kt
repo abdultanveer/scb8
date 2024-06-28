@@ -13,7 +13,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.scb8.network.MarsApi
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+
 //loosing data on rotation- activity was getting killed and recreated
 class MainActivity : AppCompatActivity() {
 
@@ -37,36 +41,6 @@ class MainActivity : AppCompatActivity() {
         //allocate memory for your activity
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.e(TAG,"activity is getting started[visible click] --egg hatched")
-        //fetch the data while the user is interacting with ur app
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.w(TAG,"activity resumed- visible again --woken")
-        //restore the state of nfs app
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.v(TAG,"activity paused- invisible --sleeping")
-        //save the state of the nfs app
-
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d(TAG,"activity stopped- hibernate --death")
-        //release the resources
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(TAG,"activity destroyed- purged --no remains of hen")
-
-    }
 
 
     fun clickHandler(view: View) {
@@ -110,6 +84,15 @@ class MainActivity : AppCompatActivity() {
     var secondsObserver:Observer<Int> = object : Observer<Int>{
         override fun onChanged(newValue: Int) {
             mainTextView.setText(""+newValue)
+        }
+
+    }
+
+    fun getDataNet(view: View) {
+        GlobalScope.launch {
+            val listResult = MarsApi.retrofitService.getPhotos()
+            Log.i(TAG,"the json received is--\n"+listResult)
+
         }
 
     }
