@@ -91,10 +91,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="26dp"
-        android:text="get"
         android:onClick="getDataNet"
+        android:text="get"
         app:layout_constraintBaseline_toBaselineOf="@+id/etName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/etName" />
+
+    <ImageView
+        android:id="@+id/ivMars"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="46dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPass"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import coil.load
 import com.example.scb8.network.MarsApi
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.Dispatchers
@@ -24,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var mainTextView: TextView
     lateinit var viewModel: MainViewModel
+    lateinit var marsImageView: ImageView
 
     lateinit var constraintLayout: ConstraintLayout
     var TAG = MainActivity::class.java.simpleName
@@ -31,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         //enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+        marsImageView = findViewById(R.id.ivMars)
         mainTextView = findViewById(R.id.tvMainn)
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 //whenever seconds value changes please update secondsObserver and owner = this activity -- alive-- register for updates
@@ -94,6 +98,7 @@ class MainActivity : AppCompatActivity() {
             val listResult = MarsApi.retrofitService.getPhotos()
             Log.i(TAG,"the no of json received = "+listResult.size)
             Log.i(TAG,"the first url img ="+listResult.get(0).imgSrc)
+            marsImageView.load(listResult.get(0).imgSrc)
 
         }
 
