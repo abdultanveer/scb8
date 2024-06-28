@@ -4,10 +4,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import com.example.scb8.network.MarsPhoto
 
-class RowCardAdapter(var data: Array<String>) : RecyclerView.Adapter<ReserveCardHolder>() {
+class RowCardAdapter(var data: List<MarsPhoto>) : RecyclerView.Adapter<ReserveCardHolder>() {
     var TAG = RowCardAdapter::class.java.simpleName
 
     //ajay -- buy row card from market n give it to babu
@@ -28,13 +31,15 @@ class RowCardAdapter(var data: Array<String>) : RecyclerView.Adapter<ReserveCard
     override fun onBindViewHolder(cardBoughtAjay: ReserveCardHolder, position: Int) {
         Log.i(TAG,"cath is writing-"+data.get(position))
 
-        cardBoughtAjay.rowTextView.setText(data.get(position))
+        cardBoughtAjay.rowTextView.setText(data.get(position).id)
+        cardBoughtAjay.rowImage.load(data.get(position).imgSrc)
     }
 }
 
 //babu -- keep the card bought by ajay in the reserver card holder
 class ReserveCardHolder(cardBoughtAjay:View):RecyclerView.ViewHolder(cardBoughtAjay) {
     var rowTextView:TextView = cardBoughtAjay.findViewById(R.id.tvRowCard)
+    var rowImage:ImageView = cardBoughtAjay.findViewById(R.id.ivRowCard)
     init {
         Log.i("ReserveCard","babu got the card from ajay")
     }
